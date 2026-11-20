@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Football Clip Desk</title>
+<style>
+body{font-family:sans-serif;margin:0;padding:16px;background:#0f1115;color:#e6e6e6}
+h1{margin:0 0 16px}
+.card{background:#1a1d24;padding:16px;border-radius:12px;margin:12px 0}
+video{width:100%;border-radius:8px}
+button{padding:10px 14px;margin:4px;border:none;border-radius:8px;background:#e8457f;color:#fff;cursor:pointer}
+input{width:100%;padding:10px;margin:4px 0;border-radius:8px;border:1px solid #333;background:#0f1115;color:#fff}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.status{font-size:14px;opacity:.8}
+</style>
+</head>
+<body>
+<h1>Football Clip Desk</h1>
+<div class="card">
+  <h3>API Keys</h3>
+  <input id="yt" placeholder="YouTube API key / OAuth token">
+  <input id="fb" placeholder="Facebook Page token">
+  <div class="row">
+    <button onclick="check()">Check connections</button>
+    <span id="conn" class="status"></span>
+  </div>
+</div>
+<div class="card">
+  <h3>Create video</h3>
+  <input id="query" placeholder="Player or match (e.g. Riyad Mahrez skills)">
+  <button onclick="create()">Create clip</button>
+  <span id="createStatus" class="status"></span>
+</div>
+<div class="card">
+  <h3>Latest clips</h3>
+  <div id="list"></div>
+</div>
+<script>
+const clips = [
+  {name:"mahrez_1.mp4",desc:"Riyad Mahrez skills clip 1"},
+  {name:"mahrez_2.mp4",desc:"Riyad Mahrez skills clip 2"},
+  {name:"mahrez_3.mp4",desc:"Riyad Mahrez skills clip 3"},
+  {name:"maza_1.mp4",desc:"Ibrahim Maza skills clip 1"},
+  {name:"maza_2.mp4",desc:"Ibrahim Maza skills clip 2"},
+  {name:"maza_3.mp4",desc:"Ibrahim Maza skills clip 3"},
+  {name:"nico_1.mp4",desc:"Nico Williams skills clip 1"},
+  {name:"nico_2.mp4",desc:"Nico Williams skills clip 2"},
+  {name:"nico_3.mp4",desc:"Nico Williams skills clip 3"},
+  {name:"spain_highlight.mp4",desc:"Spain highlight clip"},
+  {name:"spain_highlight_2.mp4",desc:"Spain highlight clip 2"},
+  {name:"spain_vs_england_1.mp4",desc:"Spain vs England highlight 1"},
+  {name:"spain_vs_england_2.mp4",desc:"Spain vs England highlight 2"}
+];
+const list = document.getElementById("list");
+clips.forEach(c=>{
+  const d=document.createElement("div"); d.className="card";
+  d.innerHTML=`<video controls src="${c.name}"></video><p>${c.desc}</p><div class="row"><button onclick="post('${c.name}','yt')">Post YouTube</button><button onclick="post('${c.name}','fb')">Post Facebook</button></div>`;
+  list.appendChild(d);
+});
+function check(){ fetch("/check",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({fb:document.getElementById("fb").value})}).then(r=>r.json()).then(d=>document.getElementById("conn").textContent=d.msg).catch(e=>document.getElementById("conn").textContent=e); }
+function create(){ fetch("/create",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({query:document.getElementById("query").value})}).then(r=>r.json()).then(d=>document.getElementById("createStatus").textContent=d.msg).catch(e=>document.getElementById("createStatus").textContent=e); }
+function post(n,p){ if(p!=="fb") return alert("YouTube upload not wired yet"); fetch("/post",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({fb:document.getElementById("fb").value,page_id:prompt("Facebook Page ID?"),file:n,desc:"Football highlights clip"})}).then(r=>r.json()).then(d=>alert(d.msg)).catch(e=>alert(e)); }
+</script>
+</body>
+</html>
