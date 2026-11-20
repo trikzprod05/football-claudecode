@@ -1,4 +1,4 @@
-app = "football-clip-desk"
+app = "football-claudecode"
 primary_region = "iad"
 
 [build]
@@ -15,4 +15,3 @@ primary_region = "iad"
   cpu_kind = "shared"
   cpus = 1
   memory_mb = 256
-```
