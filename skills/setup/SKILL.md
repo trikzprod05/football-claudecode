@@ -1,6 +1,6 @@
 ---
 name: setup
-description: First-run setup for the GTA 6 clip desk. Use when the user installs the plugin, says "set up", "start", or when ffmpeg, yt-dlp or faster-whisper are missing or the page folder does not exist yet.
+description: First-run setup for the Football clip desk. Use when the user installs the plugin, says "set up", "start", or when ffmpeg, yt-dlp or faster-whisper are missing or the page folder does not exist yet.
 ---
 
 # Setup

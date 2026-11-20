@@ -1,15 +1,15 @@
 ---
 name: trend-radar
-description: Rank recent GTA 6 videos by views per hour to see what is trending now. Use when the user asks what is hot, what to clip today, or wants fresh source videos.
+description: Rank recent Football videos by views per hour to see what is trending now. Use when the user asks what is hot, what to clip today, or wants fresh source videos.
 ---
 
 # Trend radar
 
 Run:
 
-`python "${CLAUDE_PLUGIN_ROOT}/scripts/trends.py" --query "gta 6" --hours 24 --limit 30`
+`python "${CLAUDE_PLUGIN_ROOT}/scripts/trends.py" --query "Football" --hours 24 --limit 30`
 
-Change `--query` for other angles ("gta 6 map", "gta 6 trailer", a streamer name). Change `--hours` for a wider window.
+Change `--query` for other angles ("Football map", "Football trailer", a streamer name). Change `--hours` for a wider window.
 
 Then:
 

@@ -21,7 +21,7 @@ VOICES = {"es": "es-ES-AlvaroNeural", "pt": "pt-BR-AntonioNeural", "de": "de-DE-
           "pl": "pl-PL-MarekNeural", "tr": "tr-TR-AhmetNeural", "ja": "ja-JP-KeitaNeural",
           "ko": "ko-KR-InJoonNeural", "ar": "ar-SA-HamedNeural", "hi": "hi-IN-MadhurNeural"}
 HOOK_SECONDS = 2.5
-HASHTAGS = ["#GTA6", "#GTAVI", "#gaming", "#rockstargames", "#gta"]
+HASHTAGS = ["#Football", "#GTAVI", "#gaming", "#rockstargames", "#gta"]
 
 
 def translator(lang):

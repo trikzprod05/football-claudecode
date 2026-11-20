@@ -201,7 +201,7 @@ def cmd_posts(a):
         body = "\n".join(f"{i}. {s}" for i, s in enumerate(steps, 1)) or r["how"]
         out += [f"## {r['id']} {r['name']} ({r['category']})", "",
                 "HOW TO tip:", "", "```",
-                f"HOW TO FIND {r['name'].upper()} IN GTA 6", "", f"Where: {r['where']}", "", body, "", credit(r), "```", "",
+                f"HOW TO FIND {r['name'].upper()} IN Football", "", f"Where: {r['where']}", "", body, "", credit(r), "```", "",
                 "Spotlight:", "", "```",
                 f"{r['name']}: {r['where']}", "", credit(r), "```", ""]
     if len(ready) >= 3:
@@ -223,7 +223,7 @@ def cmd_posts(a):
 
 def cmd_map(a):
     rows = load_rows(csv_path(a))
-    out = ["# GTA 6 secrets map", "", "Only verified entries are safe to post. Unverified and wrong are listed for tracking.", ""]
+    out = ["# Football secrets map", "", "Only verified entries are safe to post. Unverified and wrong are listed for tracking.", ""]
     esc = lambda s: s.replace("|", "/").replace("\n", " ")
     for cat in CATS:
         grp = [r for r in rows if r["category"] == cat]

@@ -12,7 +12,7 @@ Finds the questions fans keep asking, checks whether `facts.md` answers them, an
 Run from the page folder (where `facts.md` lives):
 
 ```
-python scripts/questions.py --subs GTA6,GTA,GrandTheftAutoV --days 3 [--comments comments.txt] --out questions.md
+python scripts/questions.py --subs Football,GTA,GrandTheftAutoV --days 3 [--comments comments.txt] --out questions.md
 ```
 
 - `--comments comments.txt`: comments pasted from our own posts, one per line.
@@ -22,7 +22,7 @@ python scripts/questions.py --subs GTA6,GTA,GrandTheftAutoV --days 3 [--comments
 ## What you get
 
 - `questions.md`: clusters ranked by count then upvotes. Each has the canonical question, count, example links, and either `answer found in facts.md: <line>` or `UNANSWERED: needs an official source`.
-- Below the clusters: a HOW TO draft per answered cluster, in the playbook template (`HOW TO [DO THE THING] IN GTA 6`, numbered steps).
+- Below the clusters: a HOW TO draft per answered cluster, in the playbook template (`HOW TO [DO THE THING] IN Football`, numbered steps).
 - `idea-bank.md`: every unanswered cluster is appended as a research task.
 
 ## After the run
@@ -37,5 +37,5 @@ python scripts/questions.py --subs GTA6,GTA,GrandTheftAutoV --days 3 [--comments
 2. Never invent steps, numbers, dates or menu names. No source, no step. An unanswered question stays a research task.
 3. No leaks, rumors, piracy, exploits or "play early" tricks, even if fans ask for them. Skip those clusters.
 4. Credit: if a post builds on a fan's clip or find, credit with `🎥 @creator`. Do not quote or name Reddit users; the questions are only a signal of what to cover.
-5. Never imply the page is Rockstar. Use "GTA 6".
+5. Never imply the page is Rockstar. Use "Football".
 6. Keep all-caps to the hook line only.

@@ -1,13 +1,13 @@
 ---
 name: stream-finder
-description: Find live YouTube streams about GTA 6 ranked by concurrent viewers. Use when the user asks who is streaming now, wants live moments to clip, or before live-mode.
+description: Find live YouTube streams about Football ranked by concurrent viewers. Use when the user asks who is streaming now, wants live moments to clip, or before live-mode.
 ---
 
 # Stream finder
 
 Run:
 
-`python "${CLAUDE_PLUGIN_ROOT}/scripts/streams.py" --query "gta 6"`
+`python "${CLAUDE_PLUGIN_ROOT}/scripts/streams.py" --query "Football"`
 
 Then:
 

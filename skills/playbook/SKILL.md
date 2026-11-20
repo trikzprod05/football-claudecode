@@ -1,6 +1,6 @@
 ---
 name: playbook
-description: Run the daily GTA 6 page routine from the full playbook. Use when the user says "daily routine", "what do I do today", "run the page", asks about the 7-day kickoff, launch day, content pillars, posting slots, or safety rules.
+description: Run the daily Football page routine from the full playbook. Use when the user says "daily routine", "what do I do today", "run the page", asks about the 7-day kickoff, launch day, content pillars, posting slots, or safety rules.
 ---
 
 # Playbook

@@ -1,6 +1,6 @@
 """Find live streams about a topic, ranked by concurrent viewers.
 
-usage: python streams.py --query "gta 6" --limit 20 --out streams.md
+usage: python streams.py --query "Football" --limit 20 --out streams.md
 YouTube always. Twitch always (Helix if TWITCH_CLIENT_ID and TWITCH_TOKEN are set, else keyless public GQL). Kick is tried once, skipped silently on failure.
 Viewer counts are exactly what the platform returned at run time.
 """
@@ -114,7 +114,7 @@ def kick(query):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--query", default="gta 6"); ap.add_argument("--limit", type=int, default=20)
+    ap.add_argument("--query", default="Football"); ap.add_argument("--limit", type=int, default=20)
     ap.add_argument("--out", default="streams.md")
     a = ap.parse_args()
     sections = [("YouTube", youtube(a.query, a.limit))]

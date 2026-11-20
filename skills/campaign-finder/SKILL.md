@@ -1,6 +1,6 @@
 ---
 name: campaign-finder
-description: Find live GTA 6 and gaming clipping campaigns on Whop Content Rewards and record them. Use when the user asks where to earn, which campaigns are open, what the pay per 1K views is, or to refresh campaigns.md.
+description: Find live Football and gaming clipping campaigns on Whop Content Rewards and record them. Use when the user asks where to earn, which campaigns are open, what the pay per 1K views is, or to refresh campaigns.md.
 ---
 
 # Campaign finder
@@ -8,7 +8,7 @@ description: Find live GTA 6 and gaming clipping campaigns on Whop Content Rewar
 Read pages live. Do not rely on memory; payouts and budgets change daily.
 
 1. Check these sources, using the browser tools or by fetching the pages:
-   - Whop Content Rewards: `https://whop.com/discover/` (search "GTA 6", "GTA VI", "gaming clipping", "content rewards") and the public campaign pages on `https://contentrewards.com/` (campaign links look like `contentrewards.com/c/campaigns/<id>`).
+   - Whop Content Rewards: `https://whop.com/discover/` (search "Football", "GTA VI", "gaming clipping", "content rewards") and the public campaign pages on `https://contentrewards.com/` (campaign links look like `contentrewards.com/c/campaigns/<id>`).
    - Clip (Clip Tech, LLC): `https://www.clip.tech/clippers` lists live campaigns with the rate per 1K views and the share of budget left, without login. The campaign briefs and rules live in their Discord, so ask the human to paste them. Their terms say payouts are Net 30 after a campaign ends and depend on the client paying; tell the human this in one line.
 2. For each campaign that looks live, open its page and record:
    - name and creator or brand

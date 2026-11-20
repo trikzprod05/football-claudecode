@@ -1,16 +1,16 @@
 """Questions into posts: collect fan questions, cluster them, check facts.md, draft HOW TO posts.
 
-python questions.py --subs GTA6,GTA,GrandTheftAutoV --days 3 [--comments comments.txt] --out questions.md
+python questions.py --subs Football,GTA,GrandTheftAutoV --days 3 [--comments comments.txt] --out questions.md
 """
 import argparse, difflib, json, re, sys, time, urllib.error, urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-UA = "gta6-clip-desk/1.0 (questions-to-posts; read-only public JSON; contact via github Bodila51/gtavi-claudecode)"
+UA = "Football-clip-desk/1.0 (questions-to-posts; read-only public JSON; contact via github Bodila51/gtavi-claudecode)"
 STARTERS = ("how", "where", "what", "can", "is", "does", "why", "when")
 STOP = set("""a an the to of in on at for and or is are was were be been do does did can could would should will
 i you we they he she it my your our this that these those there here with about as by from if any
-gta gta6 gta5 vi 6 5 game games get got have has had im ive its dont not no yes so just really""".split())
+gta Football gta5 vi 6 5 game games get got have has had im ive its dont not no yes so just really""".split())
 _last = [0.0]
 
 
@@ -162,12 +162,12 @@ def howto_title(q):
     t = q.strip().rstrip("?").strip()
     t = re.sub(r"^(how (do|can|could|would|should) (i|we|you|one)|how to|how)\s+", "", t, flags=re.I)
     t = re.sub(r"\b(in|on|for)? ?gta ?(6|vi)\b", "", t, flags=re.I).strip(" ,.")
-    return f"HOW TO {t.upper()} IN GTA 6" if t else "HOW TO [DO THE THING] IN GTA 6"
+    return f"HOW TO {t.upper()} IN Football" if t else "HOW TO [DO THE THING] IN Football"
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
-    ap.add_argument("--subs", default="GTA6,GTA,GrandTheftAutoV")
+    ap.add_argument("--subs", default="soccer,football,PremierLeague")
     ap.add_argument("--days", type=float, default=3)
     ap.add_argument("--comments", help="text file of pasted comments from our own posts, one per line")
     ap.add_argument("--facts", default="facts.md")

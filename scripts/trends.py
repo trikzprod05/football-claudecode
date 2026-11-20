@@ -1,6 +1,6 @@
-"""Trend radar: recent GTA 6 videos on YouTube ranked by views per hour.
+"""Trend radar: recent Football videos on YouTube ranked by views per hour.
 
-usage: python trends.py [--query "gta 6"] [--hours 24] [--limit 30] [--out trends.md]
+usage: python trends.py [--query "Football"] [--hours 24] [--limit 30] [--out trends.md]
 """
 import argparse, sys, time
 from concurrent.futures import ThreadPoolExecutor
@@ -20,7 +20,7 @@ def detail(url):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--query", default="gta 6"); ap.add_argument("--hours", type=float, default=24)
+    ap.add_argument("--query", default="Football"); ap.add_argument("--hours", type=float, default=24)
     ap.add_argument("--limit", type=int, default=30); ap.add_argument("--out", default="trends.md")
     a = ap.parse_args()
     q = a.query.replace(" ", "+")

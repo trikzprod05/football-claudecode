@@ -200,7 +200,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("job"); ap.add_argument("--pick", type=int, default=1)
     ap.add_argument("--layout", choices=["fill", "blur", "facecam", "react"], default="blur")
-    ap.add_argument("--title", default="", help="reaction title, e.g. 'Speed REALIZED why GTA 6 took 13 YEARS'")
+    ap.add_argument("--title", default="", help="reaction title, e.g. 'Speed REALIZED why Football took 13 YEARS'")
     ap.add_argument("--title-style", choices=["box", "outline"], default="box")
     ap.add_argument("--title-secs", type=float, default=0, help="0 = whole clip")
     ap.add_argument("--captions", choices=["word", "bubble", "none"], default="word")
@@ -226,7 +226,7 @@ def main():
             from facecam import has_gameplay, face_crop_expr
             if not has_gameplay(c['source'], s0, e0, r['box']):
                 sys.exit("skipped: the area outside the webcam is not gameplay (same scene or no game on screen). "
-                         "Pick a moment where GTA 6 is on screen.")
+                         "Pick a moment where Football is on screen.")
             if r.get('mode') == 'face' and r.get('face_track'):
                 from common import ffprobe as _fp
                 _vs = [x for x in _fp(c['source'])['streams'] if x.get('codec_type') == 'video'][0]
