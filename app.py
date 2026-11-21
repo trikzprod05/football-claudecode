@@ -65,7 +65,11 @@ def create():
             if job_dirs:
                 subprocess.run(["python3","scripts/cut.py", job_dirs[0], "--pick", "1", "--layout", "blur"], cwd=ROOT, check=True, timeout=600)
             return jsonify({"ok": True, "msg": "Clip created from top trending video!"})
-        return jsonify({"ok": True, "msg": "Trends updated but no video URL found."})
+        debug = ""
+        if os.path.exists(trends_path):
+            with open(trends_path) as f:
+                debug = f.read()[:300]
+        return jsonify({"ok": False, "msg": "No URL. trends.md: " + debug})
     except Exception as e:
         return jsonify({"ok": False, "msg": str(e)})
 
