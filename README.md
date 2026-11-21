@@ -1,6 +1,5 @@
 <div align="center">
 
-<img src="docs/logo.png" width="300" alt="gtavi-claudecode logo">
 
 <h1 align="center">gtavi-claudecode</h1>
 
