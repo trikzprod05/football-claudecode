@@ -40,7 +40,7 @@ def create():
     data = request.json or {}
     q = data.get("query","Football").strip() or "Football"
     try:
-        subprocess.run(["python3","scripts/trends.py","--query",q,"--hours","24"], cwd=ROOT, check=True, timeout=300)
+        subprocess.run(["python3","scripts/trends.py","--query",q,"--hours","72","--limit","50"], cwd=ROOT, check=True, timeout=300)
         # parse top trending video URL from trends.md
         import re
         trends_path = os.path.join(ROOT, "trends.md")
