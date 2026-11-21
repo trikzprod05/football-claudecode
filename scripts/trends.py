@@ -35,7 +35,7 @@ def main():
         if not t or i.get("is_live"):
             continue
         age = max(0.25, (now - t) / 3600)
-        if age > a.hours:
+        if a.hours > 0 and age > a.hours:
             continue
         v = i.get("view_count") or 0
         rows.append((v / age, v, age, i.get("duration") or 0, i.get("channel") or "", i.get("title") or "", i.get("webpage_url"),
