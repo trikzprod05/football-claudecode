@@ -47,11 +47,16 @@ def create():
         url = None
         if os.path.exists(trends_path):
             with open(trends_path) as f:
-                for line in f:
-                    m = re.search(r'\]\((https?://[^)]+)\)', line)
-                    if m:
-                        url = m.group(1)
-                        break
+                content = f.read()
+            # find any youtube URL
+            m = re.search(r'https?://www\.youtube\.com/watch\?v=[\w-]+', content)
+            if m:
+                url = m.group(0)
+            else:
+                # fallback: any https URL
+                m = re.search(r'https?://[^\s)]+', content)
+                if m:
+                    url = m.group(0)
         if url:
             subprocess.run(["python3","scripts/moments.py",url,"--top","3"], cwd=ROOT, check=True, timeout=600)
             # find the job dir
