@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: football-clip-desk
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
