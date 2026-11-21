@@ -45,7 +45,11 @@ def create():
         return jsonify({"ok": False, "msg": str(e)})
     return jsonify({"ok": True, "msg": "Trends updated; run moments/cut next"})
 
-@app.route("/<path:filename>")
+@app.route("/api/videos")
+def api_videos():
+    exts = {".mp4",".webm",".mov",".mkv"}
+    files = [f for f in os.listdir(ROOT) if os.path.splitext(f)[1].lower() in exts]
+    return jsonify({"videos": sorted(files)})
 def files(filename):
     return send_from_directory(ROOT, filename)
 
