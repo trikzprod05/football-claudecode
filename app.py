@@ -39,13 +39,28 @@ def post():
 def create():
     data = request.json or {}
     q = data.get("query","Football").strip() or "Football"
-    url = data.get("url","").strip()
     try:
         subprocess.run(["python3","scripts/trends.py","--query",q,"--hours","24"], cwd=ROOT, check=True, timeout=300)
+        # parse top trending video URL from trends.md
+        import re
+        trends_path = os.path.join(ROOT, "trends.md")
+        url = None
+        if os.path.exists(trends_path):
+            with open(trends_path) as f:
+                for line in f:
+                    m = re.search(r'\]\((https?://[^)]+)\)', line)
+                    if m:
+                        url = m.group(1)
+                        break
         if url:
             subprocess.run(["python3","scripts/moments.py",url,"--top","3"], cwd=ROOT, check=True, timeout=600)
-            return jsonify({"ok": True, "msg": "Trends + moments done. Check jobs/ for clips."})
-        return jsonify({"ok": True, "msg": "Trends updated. Paste a video URL to cut clips."})
+            # find the job dir
+            import glob as g
+            job_dirs = sorted(g.glob(os.path.join(ROOT, "jobs", "*")), key=os.path.getmtime, reverse=True)
+            if job_dirs:
+                subprocess.run(["python3","scripts/cut.py", job_dirs[0], "--pick", "1", "--layout", "blur"], cwd=ROOT, check=True, timeout=600)
+            return jsonify({"ok": True, "msg": "Clip created from top trending video!"})
+        return jsonify({"ok": True, "msg": "Trends updated but no video URL found."})
     except Exception as e:
         return jsonify({"ok": False, "msg": str(e)})
 
