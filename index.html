@@ -74,7 +74,8 @@ input:focus{border-color:var(--accent)}
           <option value="48">48 hours</option>
           <option value="72">72 hours</option>
         </select>
-        <label>Max Results</label>
+        <label>Video URL (optional, for clip cutting)</label>
+        <input id="url" placeholder="https://youtube.com/watch?v=...">
         <select id="limit">
           <option value="10">10</option>
           <option value="20">20</option>
@@ -158,7 +159,7 @@ function check(){
 function create(){
   const el=document.getElementById('createStatus'); el.textContent='Creating...'; el.className='status';
   const btn=event.target; btn.disabled=true; btn.innerHTML='<span class="spinner"></span>';
-  fetch('/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:document.getElementById('query').value})})
+  fetch('/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:document.getElementById('query').value,url:document.getElementById('url').value})})
     .then(r=>r.json()).then(d=>{el.textContent=d.msg;el.className='status '+(d.ok?'ok':'err')})
     .catch(e=>{el.textContent=e;el.className='status err'})
     .finally(()=>{btn.disabled=false;btn.textContent='Create Clip'});

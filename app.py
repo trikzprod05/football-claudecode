@@ -39,11 +39,15 @@ def post():
 def create():
     data = request.json or {}
     q = data.get("query","Football").strip() or "Football"
+    url = data.get("url","").strip()
     try:
         subprocess.run(["python3","scripts/trends.py","--query",q,"--hours","24"], cwd=ROOT, check=True, timeout=300)
+        if url:
+            subprocess.run(["python3","scripts/moments.py",url,"--top","3"], cwd=ROOT, check=True, timeout=600)
+            return jsonify({"ok": True, "msg": "Trends + moments done. Check jobs/ for clips."})
+        return jsonify({"ok": True, "msg": "Trends updated. Paste a video URL to cut clips."})
     except Exception as e:
         return jsonify({"ok": False, "msg": str(e)})
-    return jsonify({"ok": True, "msg": "Trends updated; run moments/cut next"})
 
 @app.route("/api/videos")
 def api_videos():
