@@ -40,7 +40,7 @@ def create():
     data = request.json or {}
     q = data.get("query","Football").strip() or "Football"
     try:
-        subprocess.run(["python","scripts/trends.py","--query",q,"--hours","24"], cwd=ROOT, check=True, timeout=300)
+        subprocess.run(["python3","scripts/trends.py","--query",q,"--hours","24"], cwd=ROOT, check=True, timeout=300)
     except Exception as e:
         return jsonify({"ok": False, "msg": str(e)})
     return jsonify({"ok": True, "msg": "Trends updated; run moments/cut next"})
